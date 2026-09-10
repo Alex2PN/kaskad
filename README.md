@@ -2,6 +2,7 @@
 Подключитесь к вашему VPS (Ubuntu/Debian) под пользователем root и выполните одну команду:
 
 wget -O install.sh https://github.com/Alex2PN/kaskad/blob/main/install.sh && chmod +x install.sh && ./install.sh
+
 ⚡ Последующие запуски
 При первой установке скрипт автоматически прописывается в систему. В дальнейшем, чтобы открыть меню, просто введите в терминале:
 
