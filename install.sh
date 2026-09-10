@@ -68,44 +68,13 @@ show_promo() {
    
     echo ""
 
-    echo -e "${CYAN}🌍 ЛОКАЦИИ: РФ И ЕВРОПА${NC}"
-    echo -e "${WHITE}  >>> https://vk.cc/ct29NQ${NC}"
-    printf "  ${YELLOW}%-12s${NC} : ${WHITE}%s${NC}\n" "OFF60" "60% скидка на первый месяц"
-    printf "  ${YELLOW}%-12s${NC} : ${WHITE}%s${NC}\n" "antenka20" "Буст 20% + 3% (при оплате за 3 мес)"
-    printf "  ${YELLOW}%-12s${NC} : ${WHITE}%s${NC}\n" "antenka6" "Буст 15% + 5% (при оплате за 6 мес)"
-    printf "  ${YELLOW}%-12s${NC} : ${WHITE}%s${NC}\n" "antenka12" "Буст 5% + 5% (при оплате за 12 мес)"
-
-    echo -e "\n${CYAN}🇧🇾 ЛОКАЦИЯ: БЕЛАРУСЬ${NC}"
-    echo -e "${WHITE}  >>> https://vk.cc/cUxAhj${NC}"
-    printf "  ${YELLOW}%-12s${NC} : ${WHITE}%s${NC}\n" "OFF60" "60% скидка на первый месяц"
-
-    echo ""
-    echo -e "\n${YELLOW}Генерация QR-кода основного партнера... (3 сек)${NC}"
-    for i in {3..1}; do
-        echo -ne "$i..."
-        sleep 1
-    done
-    echo ""
-
-    echo -e "\n${WHITE}" 
-    if command -v qrencode &> /dev/null; then
-        qrencode -t ANSIUTF8 "https://vk.cc/ct29NQ"
-    else
-        echo "QR-код не загрузился, используйте ссылки выше."
-    fi
-    echo -e "${NC}"
-    
-    echo -e "${GREEN}Сканируйте камерой телефона!${NC}"
-    echo ""
     read -p "Нажмите enter для настройки каскадного скрипта..."
 }
 
 # --- ИНСТРУКЦИЯ (ТЕКСТ ВНУТРИ КОДА) ---
 show_instructions() {
     clear
-    echo -e "${MAGENTA}╔══════════════════════════════════════════════════════════════╗${NC}"
-    echo -e "${MAGENTA}║             📚 ИНСТРУКЦИЯ: КАК НАСТРОИТЬ КАСКАД              ║${NC}"
-    echo -e "${MAGENTA}╚══════════════════════════════════════════════════════════════╝${NC}"
+  
     echo ""
     echo -e "${CYAN}ШАГ 1: Подготовка${NC}"
     echo -e "У вас должны быть данные от зарубежного сервера (VPN/Прокси и т.д.):"
@@ -247,12 +216,6 @@ list_active_rules() {
     done
     echo ""
     
-    echo -e "${GREEN}💰 Задонатить каналу и автору:${NC}"
-    if command -v qrencode &> /dev/null; then
-        qrencode -t ANSIUTF8 "https://pay.cloudtips.ru/p/7410814f"
-    else
-        echo "https://pay.cloudtips.ru/p/7410814f"
-    fi
     echo ""
 
     read -p "Нажмите Enter..."
@@ -323,18 +286,8 @@ show_menu() {
     while true; do
         clear
         echo -e "${MAGENTA}"
-        echo "******************************************************"
-        echo "       anten-ka канал представляет..."
-        echo "       YouTube: https://www.youtube.com/@antenkaru"
-        echo "******************************************************"
         echo -e "${NC}"
-        
-        echo -e "${YELLOW}Получить инструкции:${NC}"
-        echo -e "1 способ: ${BLUE}https://boosty.to/anten-ka${NC}"
-        echo -e "2 способ: ${BLUE}https://antenka.taplink.ws${NC}"
-        echo -e "3 способ: ${BLUE}https://web.tribute.tg/p/cJu${NC}"
-        echo ""
-        echo -e "${GREEN}💰 Задонатить каналу и автору:${NC} https://pay.cloudtips.ru/p/7410814f"
+      
         echo -e "------------------------------------------------------"
         
         echo -e "1) Настроить ${CYAN}AmneziaWG / WireGuard${NC} (UDP)"
@@ -344,8 +297,6 @@ show_menu() {
         echo -e "5) Посмотреть активные правила"
         echo -e "6) ${RED}Удалить одно правило${NC}"
         echo -e "7) ${RED}Сбросить ВСЕ настройки${NC}"
-        echo -e "8) ${YELLOW}Показать PROMO${NC}"
-        echo -e "9) ${MAGENTA}📚 ИНСТРУКЦИЯ (Как настроить)${NC}" 
         echo -e "0) Выход"
         echo -e "------------------------------------------------------"
         read -p "Ваш выбор: " choice
@@ -358,8 +309,6 @@ show_menu() {
             5) list_active_rules ;;
             6) delete_single_rule ;;
             7) flush_rules ;;
-            8) show_promo ;;
-            9) show_instructions ;;
             0) exit 0 ;;
             *) ;;
         esac
@@ -369,5 +318,4 @@ show_menu() {
 # --- ЗАПУСК ---
 check_root
 prepare_system
-show_promo
 show_menu
