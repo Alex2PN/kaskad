@@ -11,7 +11,7 @@ wget -O install.sh https://raw.githubusercontent.com/Alex2PN/kaskad/main/install
 gokaskad
 ```
 
-Скрипт каскад PRO
+Скрипт каскад PRO   https://github.com/dorofeev200/comp_maniya/tree/main
 ## 🚀 Быстрая установка
 
 Подключитесь к вашему VPS (Ubuntu/Debian) под пользователем `root` и выполните одну команду:
